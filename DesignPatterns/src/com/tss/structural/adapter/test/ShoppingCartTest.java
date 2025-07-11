@@ -21,6 +21,7 @@ public class ShoppingCartTest {
             System.out.println("2. Add Chocolate");
             System.out.println("3. Add Hat");
             System.out.println("4. View Cart and Checkout");
+            System.out.println("5. exit");
             System.out.print("Enter your choice: ");
             
             int choice = scanner.nextInt();
@@ -44,6 +45,11 @@ public class ShoppingCartTest {
                     cart.displayCart();
                     loop = false;
                     break;
+                case 5:
+                	System.out.println("Thank You For Visiting !");
+                	loop = false;
+                	break;
+      
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }

@@ -12,9 +12,6 @@ public class VehicleTest {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		ICarService service = new CarInspection();
-
-		System.out.println("Base Service: Car Inspection: ");
-
 		boolean running = true;
 		boolean oilChange = true;
 
@@ -32,7 +29,7 @@ public class VehicleTest {
 			case 1:
 				if (oilChange) {
 					service = new OilChange(service);
-					System.out.println("Oil Change added.");
+					System.out.println("Oil Change.");
 					oilChange = false;
 					break;
 				}

@@ -39,12 +39,11 @@ public class StudentNames {
         names.stream()
             .map(name -> name.length() >= 3 ? name.substring(0, 3) : name)
             .forEach(sub -> System.out.print(sub + "\t"));
-        System.out.println("\n");
 
         // Filter names with length <= 4
         List<String> lessOrEqual4 = names.stream()
                 .filter(name -> name.length() <= 4)
                 .collect(Collectors.toList());
-        System.out.println(lessOrEqual4);
+        System.out.println("\n"+lessOrEqual4);
     }
 }

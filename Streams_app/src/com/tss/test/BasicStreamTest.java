@@ -1,43 +1,55 @@
 package com.tss.test;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class BasicStreamTest {
 
-	public static void main(String []args)
-	{
-		List<Integer>numbers = Arrays.asList(5,3,4,7,8);
-		
-		Stream<Integer> numberStream = numbers.stream();
-		
-		numberStream.forEach((number)->System.out.print(number+" "));
-				
-		numbers.stream()
-				.forEach((number)->System.out.println(number*number));
-		
-		numbers.stream()
-				.filter((number)->number%2!=0)
-				.forEach(number->System.out.println(number));
-	
-		List<Integer> oddNumbers = numbers.stream()
-										   .filter((number)->number%2!=0)
-										   .collect(Collectors.toList());	
-	
-		System.out.println(oddNumbers);
-		Set<Integer>squareNumbers=numbers.stream().map((number)->number*number).collect(Collectors.toSet());
-		
-		System.out.println(squareNumbers);
-		
-		Set<Integer>squareNumberFiltered=numbers.stream()
-												.filter((number)->number%2==0)
-												.map((number)->number*number)
-												.collect(Collectors.toSet());
-		
-		System.out.println(squareNumberFiltered);
+	public static void main(String[] args) {
+		List<Integer> numbers = Arrays.asList(5, 3, 4, 7, 6);
+
+		System.out.println("All numbers:");
+		numbers.stream().forEach((number) -> System.out.println(number));
+
+		System.out.println("\nSquare of numbers:");
+		numbers.stream().forEach((number) -> System.out.println(number * number));
+
+		List<Integer> oddNumbers = numbers.stream().filter(number -> number % 2 != 0).collect(Collectors.toList());
+		System.out.println("\nOdd Numbers: " + oddNumbers);
+
+		Set<Integer> squareNumbers = numbers.stream().map(number -> number * number).collect(Collectors.toSet());
+		System.out.println("Square Numbers Set: " + squareNumbers);
+
+		List<Integer> evennumberSquare = numbers.stream().filter(number -> number % 2 == 0)
+				.map(number -> number * number).collect(Collectors.toList());
+		System.out.println("Even Number Squares: " + evennumberSquare);
+
+		int sum = numbers.stream().reduce(0, (number1, number2) -> number1 + number2);
+		System.out.println("Sum: " + sum);
+
+		System.out.println("Count: " + numbers.stream().count());
+
+		System.out.println("Limit 3:");
+		numbers.stream().limit(3).forEach(number -> System.out.println(number + "\t"));
+
+		System.out.println("\nSkip first 2:");
+		numbers.stream().skip(2).forEach(number -> System.out.println(number));
+
+		boolean anyMatch = numbers.stream().anyMatch(number -> number > 6);
+		System.out.println("Any number > 6? " + anyMatch);
+
+		boolean allMatch = numbers.stream().allMatch(number -> number > 0);
+		System.out.println("All numbers > 0? " + allMatch);
+
+		List<Integer> sortedList = numbers.stream().sorted().collect(Collectors.toList());
+		System.out.println("Sorted List: " + sortedList);
+
+		System.out.println("Max: " + numbers.stream().max(Comparator.naturalOrder()).orElse(null));
+		System.out.println("Min: " + numbers.stream().min(Comparator.naturalOrder()).orElse(null));
 
 	}
 }

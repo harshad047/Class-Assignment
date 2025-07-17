@@ -12,11 +12,11 @@ public class AccountTest {
 
         List<Account> accounts = new ArrayList<>();
 
-        accounts.add(new Account(1, "John", 5000));
-        accounts.add(new Account(2, "Alexander", 7000));
-        accounts.add(new Account(3, "Amy", 4500));
-        accounts.add(new Account(4, "Christina", 8000));
-        accounts.add(new Account(5, "Bob", 4000));
+        accounts.add(new Account(1, "mahek", 5000));
+        accounts.add(new Account(2, "ashish", 7000));
+        accounts.add(new Account(3, "deep", 4500));
+        accounts.add(new Account(4, "harshad", 8000));
+        accounts.add(new Account(5, "hemanshi", 4000));
 
         // Find min salary account
         Account min = accounts.stream()

@@ -1,6 +1,7 @@
 package com.tss.test;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -12,12 +13,10 @@ public class GroupingBy {
 	public static void main(String[] args) {
 		List<String> words = List.of("apple", "banana", "apricot", "berry", "cat");
 
-		// Group words by their first letter
 		Map<Character, List<String>> groupedByFirstLetter = words.stream()
 				.collect(Collectors.groupingBy(s -> s.charAt(0)));
 
 		System.out.println(groupedByFirstLetter);
-		// Output: {a=[apple, apricot], b=[banana, berry], c=[cat]}
 
 		Map<Object, Long> countingWithSameLetter = words.stream()
 				.collect(Collectors.groupingBy(s->s.charAt(0),Collectors.counting()));
@@ -31,7 +30,7 @@ public class GroupingBy {
             .map(s -> s.split("\\s+"))               
             .flatMap(Arrays::stream)                 
             .map(String::toLowerCase)                
-            .collect(Collectors.toCollection(TreeSet::new)); 
+            .collect(Collectors.toCollection(HashSet::new)); 
 
         System.out.println(uniqueSortedWords);
 	}

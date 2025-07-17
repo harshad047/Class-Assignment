@@ -11,14 +11,16 @@ public class email {
 	            "harshad@gmail.com",
 	            "mahek@yahoo.com",
 	            "ashish@outlook.com",
-	            "rishit@gmail.com"
+	            "rishit@gmail.com",
+	            "deeps@deepr.com",
+	            "deepr@smashcart.com"
 	        );
 
-	        Set<String> domains = emails.stream()
+	        Set<String> uniqueEmails = emails.stream()
 	            .map(email -> email.substring(email.indexOf("@") + 1)) 
 	            .collect(Collectors.toSet()); 
 
-	        System.out.println(domains);
+	        System.out.println(uniqueEmails);
 	    }
 	}
 

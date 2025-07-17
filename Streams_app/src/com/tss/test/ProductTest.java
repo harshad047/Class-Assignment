@@ -13,7 +13,7 @@ public class ProductTest {
 		);
 	
 	double totalBill = products.stream()
-		    .map(product -> product.getPrice() * product.getQuantity()) // convert each product to total price
+		    .map(product -> product.getPrice() * product.getQuantity()) 
 		    .reduce(0.0, Double::sum);
 
 	System.out.println(totalBill);

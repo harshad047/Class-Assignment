@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import com.tss.model.Employee;
 
-public class ComparatorExample {
+public class EmployeeTest {
 	public static void main(String[] args) {
 		List<Employee> employees = Arrays.asList(new Employee("Harshad", "Finance", 75000),
 				new Employee("Mahek", "Engineering", 80000), new Employee("Rishit", "Engineering", 75000),

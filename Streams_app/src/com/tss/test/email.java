@@ -19,7 +19,7 @@ public class email {
 	        Set<String> uniqueEmails = emails.stream()
 	            .map(email -> email.substring(email.indexOf("@") + 1)) 
 	            .collect(Collectors.toSet()); 
-
+	        
 	        System.out.println(uniqueEmails);
 	    }
 	}

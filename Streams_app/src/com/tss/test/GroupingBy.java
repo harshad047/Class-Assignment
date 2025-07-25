@@ -25,12 +25,12 @@ public class GroupingBy {
 		
 		List<String> sentences = Arrays.asList("Hello world", "hello Java", "Stream API");
 
-        Set<String> uniqueSortedWords = sentences.stream()
+        Set<String> uniqueWords = sentences.stream()
             .map(s -> s.split("\\s+"))               
             .flatMap(Arrays::stream)                 
             .map(String::toLowerCase)                
             .collect(Collectors.toCollection(HashSet::new)); 
 
-        System.out.println(uniqueSortedWords);
+        System.out.println(uniqueWords);	
 	}
 }

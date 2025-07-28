@@ -8,6 +8,9 @@ public class StudentAppTest {
 		
 		StudentController controller = new StudentController();
 		
+		
+		controller.addNewStudent();
+		
 		controller.readAllRecords();
 	}
 

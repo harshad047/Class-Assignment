@@ -18,4 +18,8 @@ public class StudentService {
 		return studentDao.readAllStudents();
 	}
 
+	public void addStudent(Student student) {
+		studentDao.addNewStudent(student);
+	}
+
 }

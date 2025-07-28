@@ -1,6 +1,7 @@
 package com.tss.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,6 +15,7 @@ public class StudentDao {
 
 	private Connection connection = null;
 	private Statement statement = null;
+	private PreparedStatement prepareStatement = null;
 	
 	public StudentDao() {
 		this.connection = DBConnection.connect();
@@ -41,5 +43,26 @@ public class StudentDao {
 			e.printStackTrace();
 		}
 		return students;
+	}
+	
+	public void addNewStudent(Student student)
+	{
+		try {
+			prepareStatement = connection.prepareStatement("insert into students values(?,?,?,?,?)");
+			prepareStatement.setInt(1, student.getStudentId());
+			prepareStatement.setString(2, student.getStudentName());
+			prepareStatement.setInt(3, student.getAge());
+			prepareStatement.setDouble(4, student.getPercentage());
+			prepareStatement.setInt(5, student.getRollno());
+			
+			int updates = prepareStatement.executeUpdate();
+			if(updates>0)
+			{
+				System.out.println("inserted Successfully !!");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

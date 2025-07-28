@@ -7,11 +7,9 @@ public class Student {
     private double percentage;
     private int rollno;
 
-    // Default constructor
     public Student() {
     }
 
-    // Parameterized constructor
     public Student(int studentId, String studentName, int age, double percentage, int rollno) {
         this.studentId = studentId;
         this.studentName = studentName;
@@ -20,7 +18,6 @@ public class Student {
         this.rollno = rollno;
     }
 
-    // Getters and Setters
     public int getStudentId() {
         return studentId;
     }

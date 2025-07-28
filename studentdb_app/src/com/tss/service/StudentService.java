@@ -12,27 +12,40 @@ public class StudentService {
 		super();
 		this.studentDao = new StudentDao();
 	}
-	
-	public List<Student> readAllStudent()
-	{
+
+	public List<Student> readAllStudent() {
 		return studentDao.readAllStudents();
 	}
 
 	public void addStudent(Student student) {
-		
-		if(student.getAge()<18)
-		{
+
+		if (student.getAge() < 18) {
 			System.out.println("Age Must Be Greater Than 18 !!");
 			return;
 		}
-		if(student.getPercentage()<0)
-		{
+		if (student.getPercentage() < 0) {
 			System.out.println("Percentage Must Be Positive !!");
 			return;
 		}
 		studentDao.addNewStudent(student);
 
+	}
+	public Student getStudentById(int studentId) {
+	    return studentDao.readStudentById(studentId);
+	}
+	
+	public void updateStudentPercentage(int student_id,double percentage)
+	{
+		if (percentage < 0) {
+			System.out.println("Percentage Must Be Positive !!");
+			return;
+		}
 		
+		studentDao.updateStudentPercentage(student_id, percentage);
+	}
+	public void deleteStudentById(int student_id)
+	{
+		studentDao.deleteStudentById(student_id);
 	}
 
 }
